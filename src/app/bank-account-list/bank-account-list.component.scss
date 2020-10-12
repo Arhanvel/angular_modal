@@ -1,0 +1,99 @@
+.form-container{
+    margin: 25px 55px;
+    background-color: white;
+    box-shadow: 0px 2px 3px 0px rgba(50, 50, 50, 0.75);
+    padding: 40px;
+    text-align:center;
+    flex-grow: 1;
+}
+
+.bank-img{
+    height: 60px;
+    width: 60px;
+}
+
+.img-plus-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    & span{
+        font-size: 40px;
+        color: #D8D8D8;
+        margin: auto 10px;
+    }
+}
+
+.acc{
+    display: flex;
+    align-items: center;
+    border: 2px solid #EBEBEB;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    &:hover{
+        cursor: pointer;
+    }
+    &-field{
+        width: 125px;
+        min-width: 125px;
+        &-checkbox{
+            position: relative;
+            margin: 0 12px;
+            height:18px;
+            width: 18px;
+            & input{
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+                &:checked ~.acc-field-checkmark{
+                    background-image: url('../../assets/img/checkbox-checked.png');
+                }
+            }  
+
+        }
+        &-checkmark{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-image: url('../../assets/img/checkbox-unchecked.png');
+        }
+        &-label{
+            margin-bottom: 0px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        &-val{
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+    &-type{
+        height: 30px;
+        width: 30px;
+        margin: auto 25px;
+    }
+}
+
+.tank-type{
+    margin-left: 10px;
+}
+
+.form-buttons{
+    margin: 20px 55px;
+    display: flex;
+    justify-content: flex-end;
+    & button{
+        width: 300px;
+        height: 50px;
+    }
+    &-primary{
+        background-color: #00B8EE;
+        color: white;
+    }
+}

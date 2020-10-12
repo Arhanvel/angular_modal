@@ -1,0 +1,15 @@
+<div class="header">
+    <h2>Add bank account</h2>
+    <a class="modal-close" (click)='closeDialog()'>&times;</a>
+</div>
+<mat-horizontal-stepper [linear]="true" #stepper (click)="$event.stopPropagation()">
+    <mat-step label="SELECT A SITE"  (click)="$event.stopPropagation()">
+        <app-bank-list></app-bank-list>
+    </mat-step>
+    <mat-step label="CONNECT ACCOUNT"  (click)="$event.stopPropagation()">
+        <app-bank-auth selectedBankId="{{currentBankId}}" #bankAuth></app-bank-auth>
+    </mat-step>
+    <mat-step label="VIEW ACCOUNT"  (click)="$event.stopPropagation()">
+        <app-bank-account-list selectedBankId="{{currentBankId}}" #accList></app-bank-account-list>
+    </mat-step>
+</mat-horizontal-stepper>

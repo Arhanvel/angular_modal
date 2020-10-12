@@ -1,0 +1,74 @@
+:host {
+    background-color: #F9F9F9;
+}
+
+h3{
+    margin-top: 30px;
+}
+
+.list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 20px;
+}
+
+.grid-item {
+    height: 60px;
+    width: 100%;
+    border : 1px solid #DBDBDB; 
+    border-radius: 0;
+    background-color: white;
+    text-align: left;
+    &:hover{
+        border-color: #80D1FD;
+    }
+}
+
+.bank-img{
+    height: 48px;
+    width: 48px;
+    margin-right:20px;
+}
+  
+.input-search{
+    margin: 30px 0 0;
+    padding: 10px;
+    -webkit-box-shadow: 2px 2px 2px 0 lightgray ;
+    box-shadow: 2px 2px 2px 0 lightgray ;    
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    border: 1px solid white;
+    & input {
+        outline: none;
+        border: none;
+        color: gray;
+        font-size: 16px;
+    }
+}
+
+.search-icon{
+    height: 20px;
+    width: 20px;
+    margin: 10px 24px 10px 14px;
+}
+
+.search-dropdown{
+    background-color: white;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    &-item{
+        padding: 15px;
+        margin:0px;
+        border: 1px solid white;
+        &:hover{
+            background-color: #E4F7FD;
+            border-color: #00B8EE;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<div class="form-container">
+    <div class="form-header">
+        <div class="img-plus-img">
+            <img src="../../assets/img/tax-tank.png">
+            <span>+</span>
+            <img src="{{selectedBank?.icon_sm}}" class="bank-img">
+        </div>
+        <p>Confirm the {{selectedBank?.name}} account you'd like to connect to TaxTank</p>
+    </div>
+    <div class="acc-list">
+        <div class="acc" *ngFor="let acc of bankAcc" (click)="acc.active = !acc.active" [style.background-color]="acc.active ? '#F6F6F6' : 'white'">
+            <div class="acc-field-checkbox">
+                <input type="checkbox" [(checked)]="acc.active">
+                <span class="acc-field-checkmark"></span>
+            </div>
+            <div class="acc-field">
+                <p class="acc-field-label">Account name</p>
+                <p class="acc-field-val">{{acc.name}}</p>
+            </div>
+            <img src="{{acc.acc_type_img}}" title="{{acc.acc_type_hint}}" class="acc-type">
+            <div class="acc-field">
+                <p class="acc-field-label">Balance</p>
+                <p class="acc-field-val">{{acc.balance | currency:'USD'}}</p>
+            </div>
+            <mat-form-field appearance="outline" class="acc-field-dropdown">
+                <mat-select [(value)]="acc.tank_type">
+                    <mat-option *ngFor="let tank of TANKTYPES" value="{{tank.id}}">
+                        <img src="{{tank.img}}"> <span class="tank-type">{{tank.name}}</span>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<div class="form-buttons">
+    <button mat-button class="form-buttons-primary" (click)="closeModal()">Add Accounts</button>
+</div>

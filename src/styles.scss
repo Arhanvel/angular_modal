@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Work Sans", sans-serif; }
+
+.mat-dialog-container {
+    padding: 0 !important;
+    border-radius: 15px !important;
+    height: calc(100vh - 30px) !important;
+}
+
+.mat-step-header:hover{
+    background-color: white !important;
+}
+
+.mat-horizontal-content-container {
+    background-color: whitesmoke;
+}
+
+.mat-step-icon{
+    display: none;
+}
+
+.mat-step-label{
+    font-size: 17px;
+    padding: 0 26px;
+    &-active .mat-step-text-label{
+        color: #09C1F0;
+    }
+    &-selected .mat-step-text-label{
+        color: #09C1F0;
+    }    
+}
+
+.mat-stepper-horizontal{
+    height: calc(100% - 128px);
+    background-color: whitesmoke;
+    &-line.ng-star-inserted{
+        border-top-width: 3px;
+    }
+}
+
+.mat-form-field-wrapper{
+    padding-bottom: 0px;
+}
+
+.mat-form-field-infix {
+    display: flex !important;
+}
+
+.mat-horizontal-stepper-header{
+/*Hack to prevent changing stepper's active page. Now it will be available only by program logic, not by user clicking on stepper's header*/    
+    pointer-events: none !important;
+    &-container{
+        background-color: white;
+    }
+}

@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    justify-content: flex-end;
+    background-image: url(../../assets/img/modal-header-background.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 40px 37px;
+    & h2{
+        flex-grow: 1;
+        color: beige;
+        font-size: 30px;
+        width: 626px;
+    }
+    & a{
+        cursor: pointer;
+        font-size: 40px;
+        color: beige;
+        margin: 5px 20px 0 0;
+    }
+}
+:host{
+    width: 731px;
+}
