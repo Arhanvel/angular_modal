@@ -13,6 +13,7 @@ export class BankListService {
   getBanks(): Observable<Bank[]> {
     return of(BANKLIST);
   }
+  
   getBank(id: number): Observable<Bank> {
     return of(BANKLIST.find(item=>item.id === id));
   }
