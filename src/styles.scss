@@ -49,9 +49,11 @@ div.mat-form-field-infix {
     display: flex;
 }
 
-.mat-horizontal-stepper-header.ng-star-inserted{
+.mat-horizontal-stepper-header{
 /*Hack to prevent changing stepper's active page. Now it will be available only by program logic, not by user clicking on stepper's header*/    
-    pointer-events: none;
+    &.ng-star-inserted{
+        pointer-events: none;
+    }    
     &-container{
         background-color: white;
     }
