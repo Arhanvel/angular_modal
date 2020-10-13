@@ -4,14 +4,14 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Work Sans", sans-serif; }
 
-.mat-dialog-container {
-    padding: 0 !important;
-    border-radius: 15px !important;
-    height: calc(100vh - 30px) !important;
+.mat-dialog-container.ng-star-inserted {
+    padding: 0;
+    border-radius: 15px;
+    height: calc(100vh - 30px);
 }
 
-.mat-step-header:hover{
-    background-color: white !important;
+.mat-step-header.ng-star-inserted:hover{
+    background-color: white;
 }
 
 .mat-horizontal-content-container {
@@ -45,13 +45,13 @@ body { margin: 0; font-family: Roboto, "Work Sans", sans-serif; }
     padding-bottom: 0px;
 }
 
-.mat-form-field-infix {
-    display: flex !important;
+div.mat-form-field-infix {
+    display: flex;
 }
 
-.mat-horizontal-stepper-header{
+.mat-horizontal-stepper-header.ng-star-inserted{
 /*Hack to prevent changing stepper's active page. Now it will be available only by program logic, not by user clicking on stepper's header*/    
-    pointer-events: none !important;
+    pointer-events: none;
     &-container{
         background-color: white;
     }
