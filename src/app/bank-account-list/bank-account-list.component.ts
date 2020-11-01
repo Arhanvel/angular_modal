@@ -1,12 +1,13 @@
 import { Component, OnInit, Optional, Input } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-import { Bank } from '../bank';
-import { BankAccountFull } from '../bank-account';
-import { BankAccountService } from '../bank-account.service';
-import { BankListService } from '../bank-list.service';
+import { Bank } from '../shared/types/bank';
+import { BankAccountFull } from '../shared/types/bank-account';
+import { BankAccountService } from '../shared/bank-account/bank-account.service';
+import { BankListService } from '../shared/bank-list/bank-list.service';
 import { ModalBankAccComponent } from '../modal-bank-acc/modal-bank-acc.component';
-import { TANKTYPES, AccList } from '../dict-const';
+import { TANKTYPES } from '../shared/types/tank-type';
+import { AccList } from '../shared/types/acc-list';
 
 @Component({
   selector: 'app-bank-account-list',
@@ -21,7 +22,7 @@ export class BankAccountListComponent implements OnInit {
 
   constructor(
     private bankService: BankListService,
-    private service: BankAccountService, 
+    private service: BankAccountService,
     @Optional() public modal?: ModalBankAccComponent) { }
 
   ngOnInit(): void {
@@ -32,12 +33,12 @@ export class BankAccountListComponent implements OnInit {
   }
 
   closeModal(): void {
-    let accList: AccList[] = [];
+    const accList: AccList[] = [];
     this.bankAcc.forEach(acc => {
       if (acc.active) {
-        let item: AccList = {
-          acc_id: acc.id,
-          tank_id: acc.tank_type
+        const item: AccList = {
+          accId: acc.id,
+          tankId: acc.tankType
         };
         accList.push(item);
       }
@@ -45,8 +46,8 @@ export class BankAccountListComponent implements OnInit {
     this.service.postAccList(this.modal?.userToken, accList).subscribe(response => console.log(response));
     this.modal?.closeDialog();
   }
-  
-  getAccList(userToken: string) : void {
+
+  getAccList(userToken: string): void {
     this.service.getAccountList(userToken).subscribe(res => this.bankAcc = res);
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Optional } from '@angular/core';
-import { Bank } from '../bank';
-import { BankListService } from '../bank-list.service';
+import { Bank } from '../shared/types/bank';
+import { BankListService } from '../shared/bank-list/bank-list.service';
 import { ModalBankAccComponent } from '../modal-bank-acc/modal-bank-acc.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { ModalBankAccComponent } from '../modal-bank-acc/modal-bank-acc.componen
 })
 export class BankListComponent implements OnInit {
   banks: Bank[];
-  searchText: string = '';
+  searchText = '';
 
   constructor(private bankService: BankListService, @Optional() public modal?: ModalBankAccComponent) { }
 
@@ -18,9 +18,7 @@ export class BankListComponent implements OnInit {
     this.getBanks();
   }
 
-  toggle(): void{
-    ;
-  }
+  toggle(): void{}
 
   getBanks(): void{
     this.bankService.getBanks().subscribe(banks => this.banks = banks);

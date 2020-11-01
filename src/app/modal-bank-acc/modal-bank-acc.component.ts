@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatStepper } from '@angular/material/stepper';
-import { from } from 'rxjs';
-import { BankListComponent } from '../bank-list/bank-list.component';
 import { BankAuthComponent } from '../bank-auth/bank-auth.component';
 import { BankAccountListComponent } from '../bank-account-list/bank-account-list.component';
 
@@ -15,7 +13,7 @@ export class ModalBankAccComponent implements OnInit {
 
   currentBankId: number;
   userToken: string;
-  @ViewChild('stepper') stepper: MatStepper; 
+  @ViewChild('stepper') stepper: MatStepper;
   @ViewChild('bankAuth') bankAuth: BankAuthComponent;
   @ViewChild('accList') accList: BankAccountListComponent;
 

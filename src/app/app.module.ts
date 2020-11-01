@@ -7,7 +7,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +21,7 @@ import { BankListComponent } from './bank-list/bank-list.component';
 import { BankAuthComponent } from './bank-auth/bank-auth.component';
 import { BankAccountListComponent } from './bank-account-list/bank-account-list.component';
 import { BankFeedsComponent } from './bank-feeds/bank-feeds.component';
-import { BankFilterPipe } from './bank-filter.pipe';
+import { BankFilterPipe } from './shared/bank-filter/bank-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,11 @@ import { BankFilterPipe } from './bank-filter.pipe';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

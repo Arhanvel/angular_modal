@@ -11,8 +11,8 @@ export class BankFeedsComponent implements OnInit {
 
   constructor(public modal: MatDialog) {}
 
-  openModal() {
-    const dialogRef = this.modal.open(ModalBankAccComponent); 
+  openModal(): void {
+    const dialogRef = this.modal.open(ModalBankAccComponent);
   }
 
   ngOnInit(): void {

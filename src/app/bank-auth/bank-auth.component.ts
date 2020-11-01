@@ -2,10 +2,10 @@ import { Component, OnInit, Input, Optional } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Bank } from '../bank';
-import { Auth } from '../auth';
-import { BankListService } from '../bank-list.service';
-import { BankAuthService } from '../bank-auth.service';
+import { Bank } from '../shared/types/bank';
+import { Auth } from '../shared/types/auth';
+import { BankListService } from '../shared/bank-list/bank-list.service';
+import { BankAuthService } from '../shared/bank-auth/bank-auth.service';
 import { ModalBankAccComponent } from '../modal-bank-acc/modal-bank-acc.component';
 
 @Component({
@@ -25,7 +25,7 @@ export class BankAuthComponent implements OnInit {
 
   constructor(
       private bankService: BankListService,
-      private authService: BankAuthService, 
+      private authService: BankAuthService,
       @Optional() public modal?: ModalBankAccComponent) { }
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class BankAuthComponent implements OnInit {
   }
 
   onSubmit(): void {
-    let data: Auth = {
+    const data: Auth = {
       login: '',
       password: '',
       security: '',
@@ -57,7 +57,7 @@ export class BankAuthComponent implements OnInit {
       res => {
         this.error = res ? '' : 'Login credentials not found';
         this.modal?.authUser(res);
-      })
+      });
   }
 
 }

@@ -3,13 +3,13 @@
     <input type="text" placeholder="Find your bank" [(ngModel)]="searchText" (change)="toggle()">
 </div>
 <ul class="search-dropdown" *ngIf="searchText">
-    <li *ngFor="let bank of banks | bankFilter: searchText" class="search-dropdown-item" (click)="selectBank(bank.id)">{{bank.name}}</li>
+    <li *ngFor="let bank of banks | bankFilter: searchText : 'name' " class="search-dropdown-item" (click)="selectBank(bank.id)">{{bank.name}}</li>
 </ul>
 <div *ngIf="!searchText">
     <h3>Popular banks</h3>
     <div class="list-container">
         <div *ngFor="let bank of banks">
-            <button mat-button (click)="selectBank(bank.id)" class="grid-item"><img src="{{bank.icon_sm}}" sizes="48px 48px" class="bank-img">{{bank.name}}</button>
+            <button mat-button (click)="selectBank(bank.id)" class="grid-item"><img src="{{bank.iconSm}}" sizes="48px 48px" class="bank-img">{{bank.name}}</button>
         </div>
     </div>
 </div>
