@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BankAccountFull } from '../types/bank-account';
 import { Observable, of } from 'rxjs';
 import { ACCOUNTTYPES, AccountType } from '../types/account-type';
@@ -12,13 +12,21 @@ import { AccList } from '../types/acc-list';
 })
 export class BankAccountService {
   private accountsUrl = 'api/accounts';
+  private userAccUrl = 'api/userAcc';
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'my-auth-token'      
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
   getAccountList(token: string): Observable<BankAccountFull[]> {
     return this.http.get<BankAccountFull[]>(this.accountsUrl)
     .pipe(
-      map((accounts: BankAccountFull[]) => {
+      map(response => {
+        const accounts: BankAccountFull[] = response as BankAccountFull[];
         return accounts.map((item) => {
           const temp: AccountType = ACCOUNTTYPES.find(el => el.id === item.accType);
           const tempRes: BankAccountFull = {...item};
@@ -35,17 +43,20 @@ export class BankAccountService {
         }
       );
       }),
-      catchError(this.handleError<BankAccountFull[]>('getHeroes', []))
+      catchError(this.handleError<BankAccountFull[]>('getAccList', []))
     );
   }
 
-  postAccList(token: string, accList: AccList[]): Observable<string>{
+  postAccList(token: string, accList: AccList[]): Observable<AccList[]>{
     const requestBody = {
       userToken: token,
       account_list: accList,
     };
     console.log(JSON.stringify(requestBody));
-    return of('SUCCESS');
+    return this.http.post<AccList[]>(this.userAccUrl, accList, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<AccList[]>('postAccList', []))
+      )
   }
 
   private handleError<T>(operation = 'operation', result?: T): (error: any) => Observable<T> {

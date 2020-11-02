@@ -38,7 +38,8 @@ export class BankAccountListComponent implements OnInit {
       if (acc.active) {
         const item: AccList = {
           accId: acc.id,
-          tankId: acc.tankType
+          tankId: acc.tankType,
+          bankName: this.selectedBank.name,
         };
         accList.push(item);
       }

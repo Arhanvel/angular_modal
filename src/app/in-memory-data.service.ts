@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Bank } from './shared/types/bank';
 import { BankAccount } from './shared/types/bank-account';
+import { AccList } from './shared/types/acc-list';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +32,11 @@ export class InMemoryDataService implements InMemoryDbService {
       new Bank(10, 'Русский стандарт', '../../assets/img/bank-logo/russtandart-sm.png', '../../assets/img/bank-logo/russtandart-bg.png'),
     ];
 
-    return {banks, accounts};
+    const userAcc: AccList[] = [
+      new AccList(0, 0, 'Сбербанк'),
+    ]
+
+    return {banks, accounts, userAcc};
   }
 
   genId<T extends Bank | BankAccount>(myTable: T[]): number {
