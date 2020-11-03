@@ -16,9 +16,9 @@ export class BankAccountService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      Authorization: 'my-auth-token'      
+      Authorization: 'my-auth-token'
     })
-  }
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -56,7 +56,7 @@ export class BankAccountService {
     return this.http.post<AccList[]>(this.userAccUrl, accList, this.httpOptions)
       .pipe(
         catchError(this.handleError<AccList[]>('postAccList', []))
-      )
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T): (error: any) => Observable<T> {

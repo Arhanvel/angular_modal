@@ -34,7 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
     const userAcc: AccList[] = [
       new AccList(0, 0, 'Сбербанк'),
-    ]
+    ];
 
     return {banks, accounts, userAcc};
   }

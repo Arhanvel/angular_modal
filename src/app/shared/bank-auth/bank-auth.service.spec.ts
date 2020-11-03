@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { BankAuthService } from './bank-auth.service';
-import { Auth } from '../types/auth'
+import { Auth } from '../types/auth';
 
 describe('BankAuthService', () => {
   let service: BankAuthService;
@@ -16,16 +16,16 @@ describe('BankAuthService', () => {
   });
 
   it('should authorize', (done: DoneFn) => {
-    service.Authorize(new Auth('admin','admin','admin','')).subscribe(value => {
+    service.Authorize(new Auth('admin', 'admin', 'admin', '')).subscribe(value => {
       expect(value).toBe('someMD5Token');
       done();
-    })
-  })
+    });
+  });
 
   it('shouldn\'t authorize', (done: DoneFn) => {
-    service.Authorize(new Auth('','','','')).subscribe(value => {
+    service.Authorize(new Auth('', '', '', '')).subscribe(value => {
       expect(value).toBe('');
       done();
-    })
-  })
+    });
+  });
 });
