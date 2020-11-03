@@ -10,10 +10,10 @@ import { AccList } from './shared/types/acc-list';
 export class InMemoryDataService implements InMemoryDbService {
   createDb(): any {
     const accounts: BankAccount[] = [
-      new BankAccount(true, 1, '068985 2563', 1, 500000, 0),
-      new BankAccount(false, 2, '068985 2563', 1, 500000, 0),
-      new BankAccount(false, 3, '068985 2563', 2, 50000, 1),
-      new BankAccount(false, 4, '068985 2563', 3, 50000, 1),
+      new BankAccount(true, 1, '068985 2563', 1, 500000, 1),
+      new BankAccount(false, 2, '068985 2563', 1, 500000, 1),
+      new BankAccount(false, 3, '068985 2563', 2, 50000, 2),
+      new BankAccount(false, 4, '068985 2563', 3, 50000, 2),
     ];
 
     const banks: Bank[] = [

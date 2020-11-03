@@ -10,7 +10,7 @@ export class TankType{
 }
 
 export const TANKTYPES: TankType[] = [
-    new TankType(0, '../../assets/img/tank-types/property-tank.png', 'Property Tank'),
-    new TankType(1, '../../assets/img/tank-types/property-tank.png', 'Work Tank'),
-    new TankType(2, '../../assets/img/tank-types/work-tank.png', 'Work Tank'),
+    new TankType(1, '../../assets/img/tank-types/property-tank.png', 'Property Tank'),
+    new TankType(2, '../../assets/img/tank-types/property-tank.png', 'Work Tank'),
+    new TankType(3, '../../assets/img/tank-types/work-tank.png', 'Work Tank'),
 ];

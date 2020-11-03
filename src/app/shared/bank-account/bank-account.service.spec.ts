@@ -19,13 +19,13 @@ describe('BankAccountService', () => {
   it('should return expected accounts list', () => {
     const expectedAccList: BankAccountFull[] = 
       [
-        new BankAccountFull(true, 1, '068985 2563', 1, 500000, 0,  
-          '../../assets/img/acc-types/mortgage.png', 'Mortgage', '../../assets/img/tank-types/property-tank.png', 'Property Tank'),
-        new BankAccountFull(false, 2, '068985 2563', 1, 500000, 0,  '../../assets/img/acc-types/mortgage.png', 'Mortgage', 
+        new BankAccountFull(true, 1, '068985 2563', 1, 500000, 1,  
+        '../../assets/img/acc-types/home-loan.png', 'Home loan', '../../assets/img/tank-types/property-tank.png', 'Property Tank'),
+        new BankAccountFull(false, 2, '068985 2563', 1, 500000, 1,  '../../assets/img/acc-types/home-loan.png', 'Home loan', 
           '../../assets/img/tank-types/property-tank.png', 'Property Tank'),
-        new BankAccountFull(false, 3, '068985 2563', 2, 50000, 1, '../../assets/img/acc-types/car-loan.png', 'Car loan', 
+        new BankAccountFull(false, 3, '068985 2563', 2, 50000, 2, '../../assets/img/acc-types/mortgage.png', 'Mortgage', 
           '../../assets/img/tank-types/property-tank.png', 'Work Tank'),
-        new BankAccountFull(false, 4, '068985 2563', 3, 50000, 1, '../../assets/img/acc-types/personal-loan.png', 'Personal credit', 
+        new BankAccountFull(false, 4, '068985 2563', 3, 50000, 2, '../../assets/img/acc-types/car-loan.png', 'Car loan', 
           '../../assets/img/tank-types/property-tank.png', 'Work Tank'),
       ];
 

@@ -29,7 +29,7 @@ export class BankAccountService {
         const accounts: BankAccountFull[] = response as BankAccountFull[];
         return accounts.map((item) => {
           const temp: AccountType = ACCOUNTTYPES.find(el => el.id === item.accType);
-          const tempRes: BankAccountFull = {...item};
+          const tempRes: BankAccountFull = new BankAccountFull(item.active, item.id, item.name, item.accType, item.balance, item.tankType);
           if (temp.id) {
             tempRes.accTypeHint = temp.hint;
             tempRes.accTypeImg = temp.img;
@@ -50,7 +50,7 @@ export class BankAccountService {
   postAccList(token: string, accList: AccList[]): Observable<AccList[]>{
     const requestBody = {
       userToken: token,
-      account_list: accList,
+      accountList: accList,
     };
     console.log(JSON.stringify(requestBody));
     return this.http.post<AccList[]>(this.userAccUrl, accList, this.httpOptions)
