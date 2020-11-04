@@ -20,6 +20,6 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 // Then we find all the tests.
-const context = require.context('./', true, /bank-account\.service\.spec\.ts$/);
+const context = require.context('./', true, /bank-filter\.pipe\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);

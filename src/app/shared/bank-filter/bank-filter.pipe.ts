@@ -18,7 +18,7 @@ export class BankFilterPipe implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {
-      return it[fieldName].toLocaleLowerCase().includes(searchText);
+      return String(it[fieldName]).toLocaleLowerCase().includes(searchText);
     });
   }
 
